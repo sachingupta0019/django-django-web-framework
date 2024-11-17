@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <h2>Student Registrtaion Form </h2>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {{form.non_field_errors}}
+        {% for field in register %}
+            <div>
+                {{field.label_tag}} {{field}} 
+                <span class = "errorlist">{{field.errors | striptags}} </span>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
